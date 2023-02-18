@@ -26,12 +26,11 @@ public class Email {
         boolean lower=false;
         boolean digit=false;
         boolean special=false;
-        for (int i=0;i<password.length();i++)
-        {
-            if(password.charAt(i)>='A' && password.charAt(i)<='Z') upper=true;
-            if(password.charAt(i)>='a' && password.charAt(i)<='z') lower=true;
-            if(password.charAt(i)>='1' && password.charAt(i)<='9') digit=true;
-            if(password.charAt(i)<='A' && password.charAt(i)>='Z' && password.charAt(i)<='a' && password.charAt(i)>='z' && password.charAt(i)<='1' && password.charAt(i)>='9') special=true;
+        for (int i=0;i<password.length();i++) {
+            if (password.charAt(i) >= 'A' && password.charAt(i) <= 'Z') upper = true;
+            else if (password.charAt(i) >= 'a' && password.charAt(i) <= 'z') lower = true;
+            else if (password.charAt(i) >= '1' && password.charAt(i) <= '9') digit = true;
+            else special = true;
         }
         return upper && lower && digit && special;
     }

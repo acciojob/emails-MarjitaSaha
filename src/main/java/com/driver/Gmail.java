@@ -5,11 +5,16 @@ import java.util.Date;
 
 public class Gmail extends Email {
 
-    int inboxCapacity; //maximum number of mails inbox can store
+    private int inboxCapacity; //maximum number of mails inbox can store
     //Inbox: Stores mails. Each mail has date (Date), sender (String), message (String). It is guaranteed that message is distinct for all mails.
     //Trash: Stores mails. Each mail has date (Date), sender (String), message (String)
-    ArrayList<Mail> Inbox= new ArrayList<>();
-    ArrayList<Mail> Trash= new ArrayList<>();
+
+    public void setInboxCapacity(int inboxCapacity) {
+        this.inboxCapacity = inboxCapacity;
+    }
+
+    private ArrayList<Mail> Inbox= new ArrayList<>();
+    private ArrayList<Mail> Trash= new ArrayList<>();
     //String emailId;
 
     public Gmail(String emailId, int inboxCapacity) {
@@ -37,6 +42,7 @@ public class Gmail extends Email {
       {
           if(message.equals(Inbox.get(i).message))
           {
+              Trash.add(Inbox.get(i));
               Inbox.remove(i);
               break;
           }
@@ -87,6 +93,6 @@ public class Gmail extends Email {
 
     public int getInboxCapacity() {
         // Return the maximum number of mails that can be stored in the inbox
-        return inboxCapacity;
+        return this.inboxCapacity;
     }
 }
